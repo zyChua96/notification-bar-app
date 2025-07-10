@@ -1,0 +1,17 @@
+#notification-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 12px;
+  color: white;
+  background-color: #333;
+  text-align: center;
+  font-family: sans-serif;
+  transition: top 0.3s ease;
+  z-index: 1000;
+}
+
+#notification-bar.hidden {
+  display: none;
+}
