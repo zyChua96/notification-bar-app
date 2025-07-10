@@ -12,6 +12,20 @@
   <button id="close-btn">&times;</button>
   </div>
 
+  <div style="margin: 100px 20px;">
+    <label for="type">Type:</label>
+    <select id="notif-type">
+      <option value="message">Message</option>
+      <option value="system">System</option>
+      <option value="order">Order</option>
+    </select>
+  
+    <label for="content">Message:</label>
+    <input type="text" id="notif-message" placeholder="Enter your message" />
+  
+    <button id="send-btn">Push Notification</button>
+  </div>
+
 
   <script src="/socket.io/socket.io.js"></script>
   <script src="main.js"></script>

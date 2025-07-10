@@ -15,7 +15,7 @@ socket.on('notification', (data) => {
   clearTimeout(dismissTimeout);
   dismissTimeout = setTimeout(() => {
     bar.classList.add('hidden');
-  }, 10000);
+  }, 5000);
 });
 
 // Manual close
@@ -28,8 +28,38 @@ closeBtn.addEventListener('click', () => {
 function getColorByType(type) {
   switch (type) {
     case 'message': return '#2d89ef'; // blue
-    case 'system': return '#ffcc00';  // yellow
+    case 'system': return '#FF0000';  // yellow
     case 'order': return '#28a745';   // green
     default: return '#333';           // default
   }
 }
+
+//button for push
+const sendBtn = document.getElementById('send-btn');
+const notifType = document.getElementById('notif-type');
+const notifMessage = document.getElementById('notif-message');
+
+sendBtn.addEventListener('click', () => {
+  console.log(`${notifType.value}`);
+  const type = notifType.value;
+  let  message = "";
+  if(notifType.value == 'message'){
+     message = "Message: " + notifMessage.value.trim();
+  }else if(notifType.value == 'system'){
+    message = "System Message: " + notifMessage.value.trim();
+  }else if (notifType.value == 'order'){
+    message = "Order Message: " + notifMessage.value.trim();
+  }else{
+    message = "Invalid message type";
+  }
+  // const message = notifMessage.value.trim();
+
+  if (message === '') return alert('Please enter a message.');
+
+  // Send the notification data to the server
+  socket.emit('new-notification', { type, message });
+
+  // Clear input
+  notifMessage.value = '';
+});
+
