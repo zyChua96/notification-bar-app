@@ -11,13 +11,19 @@ app.use(express.static('public'));
 io.on('connection', (socket) => {
   console.log('User connected');
 
-  // Simulated notifications
-  setInterval(() => {
-    socket.emit('notification', {
-      type: 'system',
-      message: 'System alert: All systems operational.',
-    });
-  }, 10000); // every 10 seconds
+  const notifications = [
+  { type: 'message', message: 'You have a new message!' },
+  { type: 'system', message: 'System alert: Maintenance at 2 AM.' },
+  { type: 'order', message: 'Order #1234 has been shipped!' },
+];
+
+let index = 0;
+
+setInterval(() => {
+  io.emit('notification', notifications[index]);
+  index = (index + 1) % notifications.length;
+}, 5000);
+
 });
 
 const PORT = 3000;

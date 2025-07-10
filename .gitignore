@@ -1,0 +1,29 @@
+# Ignore node dependencies
+node_modules/
+
+# Ignore logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Ignore environment variables
+.env
+
+# Ignore OS system files
+.DS_Store
+Thumbs.db
+
+# Ignore build output (if you build your app later)
+dist/
+build/
+
+# Ignore VS Code workspace settings
+.vscode/
+
+# Optional: Ignore local .log files or temporary files
+*.log
+*.tmp
+
+# Ignore coverage reports from testing tools
+coverage/

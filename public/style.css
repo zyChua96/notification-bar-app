@@ -1,17 +1,36 @@
 #notification-bar {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 12px;
+  top: 20px;
+  right: 20px;
+  width: 600px; /* force fixed width */
+  max-width: 90vw; /* optional: prevent overflow on small screens */
+  min-width: 300px; /* optional: prevent it from being too small */
+  padding: 15px 20px;
   color: white;
   background-color: #333;
-  text-align: center;
+  border-radius: 8px;
   font-family: sans-serif;
-  transition: top 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   z-index: 1000;
 }
 
 #notification-bar.hidden {
   display: none;
+}
+
+#notification-message {
+  flex: 1;
+  margin-right: 10px;
+}
+
+#close-btn {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  color: white;
+  cursor: pointer;
+  padding: 0 5px;
 }
